@@ -18,6 +18,7 @@ public class Main {
     private static TaskManager taskManager = new TaskManager();
 
     public static void main(String[] args) throws InterruptedException, AWTException {
+        Vars.reset();
         addCollection();
         HandleWeb.openImgurURL("http://imgur.com/");
         HandleWeb.openTwitterURL("https://twitter.com/login?lang=en");
