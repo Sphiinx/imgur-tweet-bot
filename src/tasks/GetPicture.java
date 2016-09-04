@@ -19,33 +19,34 @@ public class GetPicture extends AbstractTask {
     }
 
     private void loadPictures() throws InterruptedException {
-        WebElement nextPostButton = HandleWeb.getElementXPath(HandleWeb.imgur, "//*[@id=\"inside\"]/div[1]/div[1]/div[2]/div/div[1]/div[2]");
+        WebElement nextPostButton = HandleWeb.getElementXPath(HandleWeb.imgur, "//*[@id=\"inside\"]/div[1]/div[1]/div[1]/div/div[1]/div[2]");
         if (nextPostButton == null) {
 
-            WebElement randomButton = HandleWeb.getElementXPath(HandleWeb.imgur, "//*[@id=\"main-nav\"]/ul/li[3]/a");
+            WebElement randomButton = HandleWeb.getElementXPath(HandleWeb.imgur, "//*[@id=\"random-button\"]");
             if (randomButton == null)
                 return;
 
+            System.out.println("Loading pictures");
             randomButton.click();
             Thread.sleep(5000);
         }
     }
 
     private void getNextPicture() throws InterruptedException {
-        WebElement nextPostButton = HandleWeb.getElementXPath(HandleWeb.imgur, "//*[@id=\"inside\"]/div[1]/div[1]/div[2]/div/div[1]/div[2]");
+        WebElement nextPostButton = HandleWeb.getElementCSSSelector(HandleWeb.imgur, "#inside > div.left.post-pad > div.post-container > div.post-header > div > div.next-prev > div.btn.btn-action.navNext");
         if (nextPostButton == null)
             return;
 
+        System.out.println("Clicking next button");
         nextPostButton.click();
         Thread.sleep(38000);
     }
 
     private void getPictureInformation() {
-        WebElement pictureTitle = HandleWeb.getElementXPath(HandleWeb.imgur, "//*[@id=\"inside\"]/div[1]/div[1]/div[2]/div/div[2]/h1");
+        WebElement pictureTitle = HandleWeb.getElementCSSSelector(HandleWeb.imgur, "#inside > div.left.post-pad > div.post-container > div.post-header > div > div.post-title-container > h1");
         if (pictureTitle == null)
             return;
 
-        //String imageID = HandleWeb.imgur.getCurrentUrl().replace("http://imgur.com/gallery/", "");
         Vars.get().imgurTitle = pictureTitle.getText();
         Vars.get().imgurImage = HandleWeb.imgur.getCurrentUrl();
     }
@@ -57,7 +58,7 @@ public class GetPicture extends AbstractTask {
 
     @Override
     public boolean validate() {
-        WebElement imgurLogo = HandleWeb.getElementXPath(HandleWeb.imgur, "//*[@id=\"header-logo\"]/a/span");
+        WebElement imgurLogo = HandleWeb.getElementXPath(HandleWeb.imgur, "//*[@id=\"topbar\"]/div/a");
         return imgurLogo != null;
     }
 }

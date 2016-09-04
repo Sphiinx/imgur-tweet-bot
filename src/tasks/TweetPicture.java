@@ -42,7 +42,7 @@ public class TweetPicture extends AbstractTask {
         composeTweetTextBox.clear();
 
         if (Vars.get().imgurTitle.length() <= 110) {
-            composeTweetTextBox.sendKeys(Vars.get().imgurTitle + ": " + Vars.get().imgurImage);
+            composeTweetTextBox.sendKeys(Vars.get().imgurTitle + " " + Vars.get().imgurImage);
         } else {
             composeTweetTextBox.sendKeys("Whattt? Imgurr? Too long??? " + Vars.get().imgurImage);
         }
