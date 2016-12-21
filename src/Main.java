@@ -20,6 +20,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException, AWTException {
         Vars.reset();
         addCollection();
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Matt\\Desktop\\Programming Tools\\Selenium\\selenium-2.53.0\\chromedriver.exe");
         HandleWeb.openImgurURL("http://imgur.com/");
         HandleWeb.openTwitterURL("https://twitter.com/login?lang=en");
         Vars.get().startTime = System.currentTimeMillis();

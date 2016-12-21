@@ -26,7 +26,6 @@ public class GetPicture extends AbstractTask {
             if (randomButton == null)
                 return;
 
-            System.out.println("Loading pictures");
             randomButton.click();
             Thread.sleep(5000);
         }
@@ -37,7 +36,6 @@ public class GetPicture extends AbstractTask {
         if (nextPostButton == null)
             return;
 
-        System.out.println("Clicking next button");
         nextPostButton.click();
         Thread.sleep(38000);
     }

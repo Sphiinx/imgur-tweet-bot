@@ -1,8 +1,10 @@
 package api;
 
-
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 /**
  * Created by Sphiinx on 4/14/2016.
@@ -18,7 +20,7 @@ public class HandleWeb {
      * @param url The url to open.
      */
     public static void openTwitterURL(String url) {
-        twitter = new FirefoxDriver();
+        twitter = new ChromeDriver();
         twitter.get(url);
     }
 
@@ -28,7 +30,7 @@ public class HandleWeb {
      * @param url The url to open.
      */
     public static void openImgurURL(String url) {
-        imgur = new FirefoxDriver();
+        imgur = new ChromeDriver();
         imgur.get(url);
         imgur.manage().window().maximize();
     }
